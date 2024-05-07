@@ -28,7 +28,7 @@ const TodoList = () => {
 
     return (
         <div className="todo-list">
-            <TodoUpdate addTask={addTask} /> {/* Pasa la función addTask */}
+            <TodoUpdate addTask={addTask} /> {addTask}
             {tasks.map((task) => (
                 <TodoItem
                     key={task.id}

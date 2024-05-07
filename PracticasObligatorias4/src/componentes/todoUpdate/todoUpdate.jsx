@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
+import "../todoUpdate/todoUpdate.css"
 
 const TodoUpdate = ({ addTask }) => {
     const [taskText, setTaskText] = useState('');
