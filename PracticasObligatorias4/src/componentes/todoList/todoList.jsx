@@ -1,5 +1,7 @@
+// TodoList.js
 import { useState } from "react";
 import TodoItem from "../todoItem/todoItem";
+import TodoUpdate from "../todoUpdate/todoUpdate";
 
 const TodoList = () => {
     const [tasks, setTasks] = useState([
@@ -26,10 +28,11 @@ const TodoList = () => {
 
     return (
         <div className="todo-list">
+            <TodoUpdate addTask={addTask} /> {/* Pasa la función addTask */}
             {tasks.map((task) => (
                 <TodoItem
                     key={task.id}
-                    task={addTask}
+                    task={task}
                     onDelete={deleteTask}
                     onToggleCompleted={toggleCompleted}
                 />

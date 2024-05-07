@@ -1,15 +1,27 @@
+import PropTypes from "prop-types";
 
-const todoItem = ({task, onDelete, onToggleCompleted}) => {
-    return(
+const TodoItem = ({ task, onDelete, onToggleCompleted }) => {
+    return (
         <div className="todo-item">
-        <span
-            className={'task-text ${task.Completed ? "Completed" : ""} '}
-            onClick={() => onToggleCompleted(task.id)}
-        ></span>
-        {task.text} 
-        <button onClick={() => onDelete(task.id)}> Eliminar Tarea</button>
+            <span
+                className={`task-text ${task.completed ? 'completed' : ''}`}
+                onClick={() => onToggleCompleted(task.id)}
+            >
+                {task.text}
+            </span>
+            <button onClick={() => onDelete(task.id)}>Eliminar</button>
         </div>
     );
-}
+};
 
-export default todoItem
+TodoItem.propTypes = {
+    task: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        text: PropTypes.string.isRequired,
+        completed: PropTypes.bool.isRequired
+    }),
+    onDelete: PropTypes.func.isRequired,
+    onToggleCompleted: PropTypes.func.isRequired
+};
+
+export default TodoItem;
